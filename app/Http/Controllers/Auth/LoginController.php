@@ -94,14 +94,15 @@ class LoginController extends Controller
         return Socialite::driver('line')->redirect();
     }
 
-    public function handleLineCallback()
+    public function handleLineCallback()//handleLineCallback
     {
         try {
             $user = Socialite::driver('line')->user();
-
-            $finduser = MyAuthProvider::where('provider', 'line')->where('provider_id', $user->id)->first();
+//dd($user);
+            $finduser = MyAuthProvider::where('provider', 'line')->where('providerid', $user->id)->first();
+          //  dd($finduser);
             if ($finduser) {
-                $user = User::where('id', $finduser->user_id)->first();
+                $user = User::where('id', $finduser->userid)->first();
                 Auth::login($user);
 
                 return redirect('/');
@@ -110,18 +111,18 @@ class LoginController extends Controller
                 $newUser->name = $user->name ? $user->name : $user->nickname;
                 $newUser->email = $user->email;
                 $newUser->save();
-                $newUser->assignRole('Member');
+                $newUser->assignRole('user');
 
                 $new_user = new MyAuthProvider();
-                $new_user->user_id = $newUser->id;
+                $new_user->userid = $newUser->id;
                 $new_user->provider = 'line';
-                $new_user->provider_id = $user->id;
+                $new_user->providerid = $user->id;
                 $new_user->save();
                 Auth::login($newUser);
                 return redirect('/');
             }
         } catch (\Exception $e) {
-
+//dd($e->getMessage());
             Log::error($e->getMessage());
             return redirect('/');
         }

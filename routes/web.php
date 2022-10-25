@@ -45,4 +45,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/auth/line', 'Auth\LoginController@redirectToLine');
+//Route::get('/callback', 'Auth\LoginController@handleLineCallback');
 Route::get('/auth/line/callback', 'Auth\LoginController@handleLineCallback');

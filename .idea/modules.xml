@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/l7_perm.iml" filepath="$PROJECT_DIR$/.idea/l7_perm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/laravel7_line.iml" filepath="$PROJECT_DIR$/.idea/laravel7_line.iml" />
     </modules>
   </component>
 </project>

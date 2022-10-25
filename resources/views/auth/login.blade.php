@@ -8,11 +8,11 @@
             <div class="card">
                     <a href="{{ route('welcome') }}"> <h4>MS</h4></a>
                     <hr>
-                <div class="card-header">                     
+                <div class="card-header">
                     <h4 class="" style="text-align:center;">{{ __('Login') }}</h4>
                 </div>
 
-               
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -68,6 +68,11 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <a href="{{ url('auth/line') }}" >ดำเนินการต่อด้วย Line</a>
                             </div>
                         </div>
                     </form>

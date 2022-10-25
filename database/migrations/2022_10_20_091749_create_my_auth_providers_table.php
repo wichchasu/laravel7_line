@@ -15,11 +15,11 @@ class CreateMyAuthProvidersTable extends Migration
     {
         Schema::create('my_auth_providers', function (Blueprint $table) {
             $table->bigIncrements('myauthproviderid');
-            $table->bigInteger('userid',20)->nullable();
+           $table->BigInteger('userid')->nullable();
             $table->string('provider')->nullable()->default('NULL');
             $table->string('providerid')->nullable()->default('NULL');
             $table->timestamps();
-          // $table->primary('myauthproviderid');
+          //$table->primary('myauthproviderid');
         });
     }
 
